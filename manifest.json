@@ -2,5 +2,25 @@
 	"manifest_version": 3,
 	"name": "31337",
 	"version": "1.0.0",
-	"description": "Become the 3l337 coder through deliberate practice."
+	"description": "Become the 3l337 coder through deliberate practice.",
+	"action": {},
+	"permissions": [
+		"storage",
+		"history",
+		"tabs"
+	],
+	"background": {
+		"service_worker": "background.js",
+		"type": "module"
+	},
+	"content_scripts": [
+		{
+			"js": ["scripts/content.js"],
+			"matches": [
+				"https://developer.chrome.com/docs/extensions/*",
+				"https://developer.chrome.com/docs/webstore/*",
+				"https://leetcode.com/problems/*"
+			]
+		}
+	]
 }
